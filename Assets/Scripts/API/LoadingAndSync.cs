@@ -13,7 +13,6 @@ public class LoadingAndSync : MonoBehaviour
     private static string gamekey;
     private static Status.Root gameStatus;
     private Uri uri;
-    [SerializeField] private TMPro.TextMeshProUGUI status;
     [SerializeField] private TMPro.TextMeshProUGUI id;
     [SerializeField] private int scene;
     
@@ -37,13 +36,12 @@ public class LoadingAndSync : MonoBehaviour
         var request = UnityWebRequest.Get(ur.ToString() + "?gamekey=" + gamekey);
         yield return request.SendWebRequest();
 
-        status.text = request.downloadHandler.text;
-        var root = JsonUtility.FromJson<Status.Root>(status.text);
-        status.text = "Hi, " + root.user.name;
-        id.text = root.user.id;
+        gameStatus = JsonUtility.FromJson<Status.Root>(request.downloadHandler.text);
 
-        gameStatus = root;
+        id.text = gameStatus.user.id;
+
         yield return new WaitForSeconds(2);
+
         SceneManager.LoadScene(scene);
     }
 }
