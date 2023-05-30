@@ -72,7 +72,7 @@ PrefabInstance:
       addedObject: {fileID: 5409789882973218733}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2f2e6875eb32b74e8228f25185e357c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3848672705343067328}
+      addedObject: {fileID: 4547490202529737539}
   m_SourcePrefab: {fileID: 100100000, guid: c2f2e6875eb32b74e8228f25185e357c, type: 3}
 --- !u!1 &3879201122767855614 stripped
 GameObject:
@@ -113,7 +113,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3848672705343067328
+--- !u!114 &4547490202529737539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,9 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3879201122767855614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c916f68484d6c4c97ac4296b2dac24, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a91228f3b4c0474bb350993387894e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
-  prefabBadAsteroid: {fileID: 0}
-  maxRadiusSpawnBadAsteroid: 2
+  _radius: 3

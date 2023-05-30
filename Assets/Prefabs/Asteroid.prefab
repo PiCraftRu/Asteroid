@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6146241354420466166}
-  - component: {fileID: 7351032538877012677}
   - component: {fileID: 7271967968796937775}
   - component: {fileID: 6821223012804236303}
   - component: {fileID: 7848422043287546456}
+  - component: {fileID: 630082842856178443}
+  - component: {fileID: 3109658076574498337}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Player
@@ -36,19 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7351032538877012677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2516560078722299442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e5c2caf552c044e96633c16f4e2933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 3879201122767855614, guid: a53b2a413b7e5b04bb9976fb32bb53f7, type: 3}
 --- !u!135 &7271967968796937775
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -194,6 +182,35 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &630082842856178443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516560078722299442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a275bb2440c27748bb011e320d88e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
+  _movementType: 0
+  _center: {x: 0, y: 0, z: 0}
+  _direction: {x: 0, y: 0, z: 1}
+--- !u!114 &3109658076574498337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516560078722299442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b174eff44588d54fb95f36deef92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabPlanet: {fileID: 3879201122767855614, guid: a53b2a413b7e5b04bb9976fb32bb53f7, type: 3}
 --- !u!1001 &5195121126914797952
 PrefabInstance:
   m_ObjectHideFlags: 0
