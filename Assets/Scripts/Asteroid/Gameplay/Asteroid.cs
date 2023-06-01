@@ -14,6 +14,8 @@ namespace Asteroid.Gameplay
 
         [SerializeField] private GameObject _prefabPlanet;
 
+        [SerializeField] private GameObject _prefabDeathScreen;
+
         public void Start()
         {
             _controller = GetComponent<MovementController>();
@@ -88,6 +90,7 @@ namespace Asteroid.Gameplay
             gameObject.AddComponent<Explosion>();
             Destroy(_controller);
             Destroy(this);
+            Instantiate(_prefabDeathScreen, FindFirstObjectByType<Canvas>().transform);
         }
 
         private bool CheckCollision()

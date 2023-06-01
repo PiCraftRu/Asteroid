@@ -1,3 +1,5 @@
+
+using Asteroid.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +29,6 @@ namespace Asteroid.Animations
             transform.localScale = (1 - InterpWithClamp(Time.time - time)) * Vector3.one;
             if (Time.time - time > 2)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 Destroy(gameObject);
             }
         }

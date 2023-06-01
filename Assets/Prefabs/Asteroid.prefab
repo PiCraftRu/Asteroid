@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabPlanet: {fileID: 3879201122767855614, guid: a53b2a413b7e5b04bb9976fb32bb53f7, type: 3}
+  _prefabDeathScreen: {fileID: 5496792962460139993, guid: 07c1a86cd4772a94985bf455aa947aea, type: 3}
 --- !u!1001 &5195121126914797952
 PrefabInstance:
   m_ObjectHideFlags: 0
