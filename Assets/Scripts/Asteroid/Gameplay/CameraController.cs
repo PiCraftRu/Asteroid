@@ -28,7 +28,6 @@ namespace Asteroid.Gameplay
                 }
             }
             transform.position = Vector3.Lerp(transform.position, _position, Time.deltaTime * 5);
-
         }
     }
 }

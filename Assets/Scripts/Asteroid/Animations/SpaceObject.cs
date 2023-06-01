@@ -4,7 +4,7 @@ namespace Asteroid.Animations
 {
     public class SpaceObject : MonoBehaviour
     {
-        [SerializeField] Material baseMaterial;
+        [Tooltip("Nullable")] [SerializeField] Material baseMaterial;
         private Vector3 speed = Vector3.zero;
 
         public void Start()
@@ -19,6 +19,10 @@ namespace Asteroid.Animations
 
         private void SetMaterial()
         {
+            if ( baseMaterial == null )
+            {
+                return;
+            }
             var material = new Material(baseMaterial);
             material.SetColor("_Color", new Color(
                 Random.Range(0f, 1f),
