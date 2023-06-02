@@ -11,6 +11,7 @@ namespace Asteroid.Gameplay
         void Start()
         {
             _position = transform.position;
+            Application.targetFrameRate = 60;
         }
 
         void Update()
