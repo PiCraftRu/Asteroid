@@ -22,7 +22,7 @@ namespace Asteroid.Gameplay
             _collider = GetComponent<Collider>();
         }
 
-        private List<Planet> _passedPlanets = new List<Planet>();
+        private List<Planet> _previousPlanets = new List<Planet>();
 
         private float _distanceToPlanet = Mathf.Infinity;
 
@@ -38,15 +38,17 @@ namespace Asteroid.Gameplay
         {
             if (_controller.movementType == MovementController.MovementType.Linear)
             {
-                _controller.speed += Time.deltaTime * 0.7f;
+                _controller.speed += Time.deltaTime * 0.4f;
             }
         }
+
+        private int _passedPlanets = 0;
 
         private void Calculate()
         {
             var distance = 0f;
             var planet = Planet.GetNearestPlanetWithRadius(gameObject, out distance);
-            if (planet != null && !_passedPlanets.Contains(planet))
+            if (planet != null && !_previousPlanets.Contains(planet))
             {
                 if (distance < _distanceToPlanet)
                 {
@@ -55,7 +57,8 @@ namespace Asteroid.Gameplay
                 else
                 {
                     _controller.SetMoveOrbital(planet.gameObject);
-                    _passedPlanets.Add(planet);
+                    _previousPlanets.Add(planet);
+                    _passedPlanets += 1;
                     SpawnPlanet();
                     DestroyUnusedPlanets();
                 }
@@ -64,10 +67,10 @@ namespace Asteroid.Gameplay
 
         public void DestroyUnusedPlanets()
         {
-            if (_passedPlanets.Count > 3)
+            if (_previousPlanets.Count > 3)
             {
-                _passedPlanets.RemoveAt(0);
-                Destroy(_passedPlanets[0].gameObject);
+                _previousPlanets.RemoveAt(0);
+                Destroy(_previousPlanets[0].gameObject);
             }
         }
 
@@ -87,10 +90,10 @@ namespace Asteroid.Gameplay
             {
                 return;
             }
+            Instantiate(_prefabDeathScreen, FindFirstObjectByType<Canvas>().transform);
             gameObject.AddComponent<Explosion>();
             Destroy(_controller);
             Destroy(this);
-            Instantiate(_prefabDeathScreen, FindFirstObjectByType<Canvas>().transform);
         }
 
         private bool CheckCollision()
@@ -118,5 +121,8 @@ namespace Asteroid.Gameplay
             var gm = Instantiate(_prefabPlanet, _controller.center + Vector3.forward * 6 + Vector3.right * Random.Range(-1f, 1f), Quaternion.identity);
             gm.AddComponent<Appear>().size = 50;
         }
+
+        public int passedPlanets { get { return _passedPlanets; } }
+        public float speed { get { return _controller.speed; } }
     }
 }

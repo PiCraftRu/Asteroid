@@ -39,6 +39,10 @@ namespace Asteroid.UI
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
+                else if (line.command == "url" && line.arguments.Length == 1)
+                {
+                    Application.OpenURL(line.arguments[0]);
+                }
             }
         }
 

@@ -72,7 +72,7 @@ namespace Asteroid.Utils
 
         public void SetMoveOrbital(GameObject center)
         {
-            this.center = center.transform.position;
+            SetCenter(center.transform.position);
             SetMoveOrbital();
         }
 
@@ -96,11 +96,12 @@ namespace Asteroid.Utils
             {
                 return _center;
             }
-            set
-            {
-                _center = value;
-                _radius = GetOutCenterVector().magnitude;
-            }
+        }
+
+        public void SetCenter(Vector3 center)
+        {
+            _center = center;
+            _radius = GetOutCenterVector().magnitude;
         }
 
         public float speed
