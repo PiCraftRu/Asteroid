@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7848422043287546456}
   - component: {fileID: 630082842856178443}
   - component: {fileID: 3109658076574498337}
+  - component: {fileID: 6042085760925955839}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Player
@@ -212,6 +213,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabPlanet: {fileID: 3879201122767855614, guid: a53b2a413b7e5b04bb9976fb32bb53f7, type: 3}
   _prefabDeathScreen: {fileID: 1552585473339841174, guid: 366f02d39672c38409e351124c5f3ce7, type: 3}
+--- !u!54 &6042085760925955839
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516560078722299442}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &5195121126914797952
 PrefabInstance:
   m_ObjectHideFlags: 0

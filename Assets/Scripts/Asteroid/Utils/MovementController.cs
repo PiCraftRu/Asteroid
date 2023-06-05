@@ -18,7 +18,14 @@ namespace Asteroid.Utils
 
         [SerializeField] private Vector3 _direction = Vector3.forward;
 
-        public void Update()
+        private Rigidbody _rigidbody;
+
+        public void Start()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        public void FixedUpdate()
         {
             Move();
         }
@@ -38,7 +45,7 @@ namespace Asteroid.Utils
 
         private void MoveLinear()
         {
-            transform.position += _direction * _speed * Time.deltaTime;
+            _rigidbody.MovePosition(_rigidbody.position + _direction * _speed * Time.deltaTime);
         }
 
         private void MoveOrbittal()
@@ -46,8 +53,8 @@ namespace Asteroid.Utils
             var angularSpeed = _speed / _radius;
             var angle = GetAngle() + angularSpeed * Time.deltaTime;
             var position = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * _radius + _center;
-            _direction = (position - transform.position).normalized;
-            transform.position = position;
+            _direction = (position - _rigidbody.position).normalized;
+            _rigidbody.MovePosition(position);
         }
 
         private float _radius = 0;
@@ -67,7 +74,7 @@ namespace Asteroid.Utils
 
         private Vector3 GetOutCenterVector()
         {
-            return (transform.position - _center);
+            return (_rigidbody.position - _center);
         }
 
         public void SetMoveOrbital(GameObject center)

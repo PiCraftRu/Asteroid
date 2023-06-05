@@ -28,8 +28,12 @@ namespace Asteroid.Gameplay
 
         public void Update()
         {
-            Calculate();
             Click();
+        }
+
+        public void FixedUpdate()
+        {
+            Calculate();
             CheckToDie();
             IncreaseSpeed();
         }

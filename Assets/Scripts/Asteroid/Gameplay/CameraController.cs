@@ -7,14 +7,19 @@ namespace Asteroid.Gameplay
     {
         private Asteroid _asteroid;
         private Vector3 _position;
+        private Rigidbody _rigidbody;
 
         void Start()
         {
             _position = transform.position;
-            Application.targetFrameRate = 60;
+            if ( Application.isMobilePlatform )
+            {
+                Application.targetFrameRate = 60;
+            }
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
-        void Update()
+        void FixedUpdate()
         {
             if (_asteroid == null)
             {
@@ -28,7 +33,7 @@ namespace Asteroid.Gameplay
                     _position = controller.center + Vector3.up * 10 + Vector3.forward * 3;
                 }
             }
-            transform.position = Vector3.Lerp(transform.position, _position, Time.deltaTime * 5);
+            _rigidbody.MovePosition(Vector3.Lerp(_rigidbody.position, _position, Time.deltaTime * 5));
         }
     }
 }
